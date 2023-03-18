@@ -1,0 +1,17 @@
+#!/bin/bash
+
+keep_day=14
+backupfolder=/etc/backup/
+
+cd /etc
+if ! [ -d /etc/backup ]; then
+  mkdir $backupfolder
+fi
+
+  echo "backup is start "
+    tar czpf "/etc/backup/wireguard_`date +%Y-%m-%d`.tar.gz" wireguard/ > /dev/null 2>&1
+  
+  echo "files older than 14 days are deleted"
+    find $backupfolder -mtime +$keep_day -delete
+  
+  echo "Backup is complete "
