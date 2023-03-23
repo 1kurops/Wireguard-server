@@ -20,25 +20,25 @@ sudo curl -o- https://raw.githubusercontent.com/1kurops/wireguard-server/main/in
 
 This configuration uses the /10 subnet mask for the internal subnet, which means you will have access to generating 4,194,304 internal IP addresses. Thus, the maximum number of configurations is 4,194,304.
 
-### To manage WireGuard configurations, use the following scripts located in `/etc/wireguard/scripts/`:
+### To manage WireGuard configurations, use the following Bash scripts located in `/etc/wireguard/scripts/`:
 
-  `wg_make.sh`: creates a new configuration. This script also supports arguments. For example, running wg_make.sh conf_name will create a configuration with the name "conf_name."
+  `wg_make`: creates a new configuration. This script also supports arguments. For example, running wg_make.sh conf_name will create a configuration with the name "conf_name."
 
-  `wg_remove.sh`: deletes a configuration. This script also supports arguments.
+  `wg_remove`: deletes a configuration. This script also supports arguments.
 
-  `wg_disable.sh`: disables a configuration.
+  `wg_disable`: disables a configuration.
 
-  `wg_enable.sh`: enables a configuration.
+  `wg_enable`: enables a configuration.
 
-  `clients.sh` displays information about clients.
+  `clients` displays information about clients.
 
 Additionally, there are several service scripts that are active by default:
 
-  `backup.sh`: creates an incremental backup of the WireGuard directory. Copies of backups older than 14 days are automatically deleted.
+  `backup`: creates an incremental backup of the WireGuard directory. Copies of backups older than 14 days are automatically deleted.
   
-  `banscript.sh`: tracks traffic usage and, if it exceeds a certain limit (10GB by default), disables the configuration until the next day.
+  `banscript`: tracks traffic usage and, if it exceeds a certain limit (10GB by default), disables the configuration until the next day.
   
-  `clientcheck.sh`: tracks unused configurations and writes their names to the file /opt/wireguard_server/usercheck.txt.
+  `clientcheck`: tracks unused configurations and writes their names to the file /opt/wireguard_server/usercheck.txt.
 
 ### Contributors
 
