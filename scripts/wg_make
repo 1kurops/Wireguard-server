@@ -16,7 +16,7 @@ if [[ "$#" -gt 0 ]]; then
   CLIENT_NAME="$1"
 fi
 
-cd /etc/$wireguard || exit
+cd /etc/wireguard || exit
 
 if [[ -z "${CLIENT_NAME}" ]]; then
   read -r -p "Enter a Name for the Client: " CLIENT_NAME
@@ -47,7 +47,7 @@ echo "Client Keys generated"
 #check value virtual ip
 if
   A=$(shuf -i 171966466-176160766 -n 1)
-  ! grep -q "${A}" /etc/$wireguard/configs/clients.txt
+  ! grep -q "${A}" /etc/wireguard/configs/clients.txt
 then
   i=$A
   let "F1=$i/256**3"
@@ -124,7 +124,7 @@ echo "Client config generated"
     echo "PersistentKeepalive = ${PERSISTENTKEEPALIVE}"
   fi
   echo "### end ${CLIENT_NAME} ###"
-} >>$wg0.conf
+} >>wg0.conf
 
 echo "Updated server config"
 
