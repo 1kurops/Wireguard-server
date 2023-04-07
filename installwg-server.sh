@@ -95,7 +95,9 @@ if [ -z "$DNS" ]; then
   wgDNS1="1.1.1.1"
   wgDNS2="1.0.0.1"
 else
+if [ ! -z "$DNS" ]; then
   wgDNS1=$DNS
+fi
 fi
 echo -n "Please enter the MTU (default 1420): "
 read -r MTU
