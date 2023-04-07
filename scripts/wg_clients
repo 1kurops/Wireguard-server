@@ -1,6 +1,6 @@
 #!/bin/bash
 
-wgset="/opt/wireguard_server/wgset.conf"
+wgset="/etc/wireguard/scripts/wgset.conf"
 source "${wgset}"
 CLIENTS_FILE="/etc/wireguard/configs/clients.txt"
 
