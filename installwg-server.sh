@@ -87,7 +87,9 @@ read -r port
 if [ -z "$port" ]; then
   wgPORT="51820"
 else
+if [ ! -z "$port" ]; then
   wgPORT="$port"
+fi
 fi
 echo -n "Please enter the DNS (default 1.1.1.1): "
 read -r DNS
